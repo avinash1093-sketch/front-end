@@ -14,7 +14,7 @@ const AddProduct = () => {
       return false;
     }
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-    let result = await fetch("http://localhost:5000/addProduct", {
+    let result = await fetch("https://backend-node-black-kappa.vercel.app/addProduct", {
       method: "post",
       body: JSON.stringify({ name, price, category, company, userId }),
       headers: {

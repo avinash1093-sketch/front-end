@@ -13,7 +13,7 @@ const UpdateProduct = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      let result = await fetch(`http://localhost:5000/product/${params.id}`, {
+      let result = await fetch(`https://backend-node-black-kappa.vercel.app/product/${params.id}`, {
         headers: {
           authorization: `bearer ${JSON.parse(
             localStorage.getItem("authToken")
@@ -31,7 +31,7 @@ const UpdateProduct = () => {
   }, []);
 
   const updateProduct = async () => {
-    await fetch(`http://localhost:5000/product/${params.id}`, {
+    await fetch(`https://backend-node-black-kappa.vercel.app/product/${params.id}`, {
       method: "put",
       body: JSON.stringify({ name, price, category, company }),
       headers: {
