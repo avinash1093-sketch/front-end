@@ -1,5 +1,4 @@
-import { React, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { React,  useState } from "react";
 
 const AddProduct = () => {
   const [name, setName] = useState("");
