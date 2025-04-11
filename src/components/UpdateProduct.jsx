@@ -6,15 +6,18 @@ const UpdateProduct = () => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [company, setCompany] = useState("");
-  const params = useParams();
-    const navigate = useNavigate('/');
+
+  const navigate = useNavigate("/");
 
   useEffect(() => {
     const getProduct = async () => {
-      let result = await fetch(`http://localhost:5000/product/${params.id}`,{
+      const params = useParams();
+      let result = await fetch(`http://localhost:5000/product/${params.id}`, {
         headers: {
-          'authorization': `bearer ${JSON.parse(localStorage.getItem('authToken'))}`,
-        }
+          authorization: `bearer ${JSON.parse(
+            localStorage.getItem("authToken")
+          )}`,
+        },
       });
       result = await result.json();
       setName(result.name);
@@ -25,19 +28,19 @@ const UpdateProduct = () => {
     getProduct();
   }, []);
 
-
-
   const updateProduct = async () => {
     let result = await fetch(`http://localhost:5000/product/${params.id}`, {
-      method: 'put',
-      body: JSON.stringify({name, price,category, company}),
+      method: "put",
+      body: JSON.stringify({ name, price, category, company }),
       headers: {
-        'content-type': 'application/json',
-        'authorization': `bearer ${JSON.parse(localStorage.getItem('authToken'))}`,
-      }
+        "content-type": "application/json",
+        authorization: `bearer ${JSON.parse(
+          localStorage.getItem("authToken")
+        )}`,
+      },
     });
     result = await result.json();
-    navigate('/')
+    navigate("/");
   };
 
   return (

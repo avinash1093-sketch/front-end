@@ -6,10 +6,10 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate("/");
 
 
   useEffect(()=>{
+  const navigate = useNavigate();
     const auth = localStorage.getItem('user');
     if (auth) {
       navigate('/')

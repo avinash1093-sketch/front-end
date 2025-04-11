@@ -12,7 +12,7 @@ const Nav = () => {
   };
   return (
     <div>
-      <img src="https://ecom.ngo/wp-content/uploads/2025/01/ecom-logo-full-color-rgb-01.jpg" alt="no Image" className="logo"></img>
+      <img src="https://ecom.ngo/wp-content/uploads/2025/01/ecom-logo-full-color-rgb-01.jpg" alt="logo" className="logo"></img>
       {auth ? (
         <ul className="nav-ul">
           <li>
