@@ -10,21 +10,22 @@ const UpdateProduct = () => {
     const navigate = useNavigate('/');
 
   useEffect(() => {
+    const getProduct = async () => {
+      let result = await fetch(`http://localhost:5000/product/${params.id}`,{
+        headers: {
+          'authorization': `bearer ${JSON.parse(localStorage.getItem('authToken'))}`,
+        }
+      });
+      result = await result.json();
+      setName(result.name);
+      setPrice(result.price);
+      setCategory(result.category);
+      setCompany(result.company);
+    };
     getProduct();
   }, []);
 
-  const getProduct = async () => {
-    let result = await fetch(`http://localhost:5000/product/${params.id}`,{
-      headers: {
-        'authorization': `bearer ${JSON.parse(localStorage.getItem('authToken'))}`,
-      }
-    });
-    result = await result.json();
-    setName(result.name);
-    setPrice(result.price);
-    setCategory(result.category);
-    setCompany(result.company);
-  };
+
 
   const updateProduct = async () => {
     let result = await fetch(`http://localhost:5000/product/${params.id}`, {
