@@ -27,6 +27,7 @@ const UpdateProduct = () => {
       setCompany(result.company);
     };
     getProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateProduct = async () => {
@@ -40,7 +41,7 @@ const UpdateProduct = () => {
         )}`,
       },
     });
-    result = await result.json();
+    // result = await result.json();
     navigate("/");
   };
 

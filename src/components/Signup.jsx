@@ -14,6 +14,7 @@ const SignUp = () => {
     if (auth) {
       navigate('/')
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   const collectData = async () => {
