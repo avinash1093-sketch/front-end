@@ -8,10 +8,11 @@ const UpdateProduct = () => {
   const [company, setCompany] = useState("");
 
   const navigate = useNavigate("/");
+  const params = useParams();
+
 
   useEffect(() => {
     const getProduct = async () => {
-      const params = useParams();
       let result = await fetch(`http://localhost:5000/product/${params.id}`, {
         headers: {
           authorization: `bearer ${JSON.parse(
